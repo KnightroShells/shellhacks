@@ -20,3 +20,5 @@ Article.init({
   timestamps: false
 });
 
+module.exports = Article;
+

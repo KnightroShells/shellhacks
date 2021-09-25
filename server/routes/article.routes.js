@@ -12,8 +12,7 @@ router.get("/", async (req, res) => {
 
 // Add Article
 router.post("/", async (req, res) => {
-    console.log(sequelize);
-    let article = await sequelize.models.article.create({
+    let article = await Article.create({
       title: req.body.title, 
       description: req.body.description, 
       categories: req.body.categories, 
@@ -24,8 +23,7 @@ router.post("/", async (req, res) => {
 
 // Delete Article
 router.delete("/:id", async (req, res) => {
-  console.log(sequelize);
-  let article = await sequelize.models.article.destroy({
+  let article = await Article.destroy({
     where: { 
       articleId: req.params.id
     }
@@ -34,8 +32,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 async function fetchArticles() {
-    let articles = await sequelize.models.article.findAll();
-    articles.forEach(article => console.log(article.title));
+    let articles = Article.findAll();
     return articles;
 }
 
