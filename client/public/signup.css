@@ -1,0 +1,11 @@
+.bg-image {
+    background-color: #c86aff;
+    background-image: linear-gradient(62deg, #a105df 0%, #E0C3FC 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    z-index: -99;
+    position: fixed;
+}
