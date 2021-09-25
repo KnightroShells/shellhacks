@@ -13,8 +13,10 @@ Article.init({
   categories: { type: DataTypes.TEXT, allowNull: false },
   link: { type: DataTypes.TEXT, allowNull: false },
   dateCreated: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, allowNull: false },
+  updatedAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, allowNull: false },
 }, {
   sequelize,
-  modelName: 'article'
+  modelName: 'article',
+  timestamps: false
 });
 

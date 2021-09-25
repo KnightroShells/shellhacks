@@ -16,6 +16,7 @@ User.init({
   lastLogin: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, allowNull: false },
 }, {
   sequelize,
-  modelName: 'user'
+  modelName: 'user',
+  timestamps: false
 });
 
