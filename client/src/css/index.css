@@ -13,3 +13,14 @@ body, html {
     z-index: -99;
     position: fixed;
 }
+
+h1 {
+  text-align: center;
+  background-color: rgba(red, green, blue, 0.5);
+}
+
+#start-btn {
+background-color: rgba(0,0,0,0.5); 
+font-size: xx-large;
+color: white;
+}
