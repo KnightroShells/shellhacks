@@ -2,103 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyTechNews | User Interest Selection</title>
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/fontawesome.min.css">
-    <link rel="stylesheet" href="public/css/select.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTechNews | User Interest Selection</title>
+  <link rel="stylesheet" href="public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/css/fontawesome.min.css">
+  <link rel="stylesheet" href="public/css/select.css">
 </head>
 
 <body>
-    <div class="templates" style="display:none;">
-        <div id="articleTemplate" class="row mb-3">
-          <div class="col-md-6">
-            <img class="article-image w-100" />
-          </div>
-          <div class="col-md-6">
-            <h3 class="article-heading lead fs-2 fw-bold"></h3>
-            <p class="article-description lead fs-5"></p>
-            <a class="article-link">Read More Here</a>
-          </div>
-        </div>
-    </div>
-
-    <div class="bg-image"></div>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">My Tech News</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto">
-
-                </ul>
-                <form class="d-flex">
-                    fontawesome-user-icon
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container mx-auto p-5 bg-white text-black rounded-xl top-space">
-
-      <h1>Here's the news</h1>
-      <h4 class="sub-heading">Check them out below!</h4>
-      <hr class="break-line">
-      <br>
-          
-      <div id="articles-container">
-          <!-- inputs go here -->
+  <div class="templates" style="display:none;">
+    <div id="articleTemplate" class="row mb-3">
+      <div class="col-md-6">
+        <img class="article-image w-100" />
+      </div>
+      <div class="col-md-6">
+        <h3 class="article-heading lead fs-2 fw-bold"></h3>
+        <p class="article-description lead fs-5"></p>
+        <a class="article-link">Read More Here</a>
       </div>
     </div>
-    
-    <script src="public/js/bootstrap.bundle.min.js"></script>
-    <script src="public/js/login.js"></script>
-    <script src="public/js/axios.min.js"></script>
+  </div>
 
-    <script>
-        let inputContainer = document.querySelector("#input-container")
-        let token = localStorage.getItem("auth")
-        let interests = []
-        let articles = []
-        // fetch categories
-        axios.get("api/user/interests", {
-            headers: {
-                    Authorization: `Bearer ${token}` 
-                }
-        })
-        .then(function(response){
-            interests = response.interests.split(",")
-            let articlesContainer = document.querySelector("#articles-container")
-            for(let i = 0; i < interests.length; i++){
-              axios.get("api/article/external/" + interests[i])
-                .then(function(response){
-                  for(let j = 0; j < response.articles.length; j++){
-                    let article = response.articles[j]
-                    let node = document.querySelector("#articleTemplate").cloneNode(true)
-                    let image = node.querySelector(".article-image")
-                    image.src = article.urlToImage
-                    let heading = node.querySelector(".article-heading")
-                    if(article.title.length <= 1) continue;
-                    heading.innerHTML = article.title
-                    let description = node.querySelector(".article-description")
-                    description.innerHTML = article.description
-                    let link = node.querySelector(".article-link")
-                    link.href = article.url;
-                    // make your changes...
-                    articlesContainer.appendChild(node)
-                  }
-                })
-            }
-        })
-        
+  <div class="bg-image"></div>
+  <!-- Nav bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <img class="site-logo" src="./public/images/newspaper_icon.png" alt="Site logo">
+      <a class="navbar-brand" href="../client/index.html">My Tech News</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    </script>
+  <div class="container mx-auto p-5 bg-white text-black rounded-xl top-space">
+
+    <h1>Here's the news!</h1>
+    <h4 class="sub-heading">Read from the articles below:</h4>
+    <hr class="break-line">
+    <br>
+
+    <div id="articles-container">
+      <!-- inputs go here -->
+    </div>
+  </div>
+
+  <script src="public/js/bootstrap.bundle.min.js"></script>
+  <script src="public/js/login.js"></script>
+  <script src="public/js/axios.min.js"></script>
+
+  <script>
+    let inputContainer = document.querySelector("#input-container")
+    let token = localStorage.getItem("auth")
+    let interests = []
+    let articles = []
+    // fetch categories
+    axios.get("api/user/interests", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(function (response) {
+        interests = response.interests.split(",")
+        let articlesContainer = document.querySelector("#articles-container")
+        for (let i = 0; i < interests.length; i++) {
+          axios.get("api/article/external/" + interests[i])
+            .then(function (response) {
+              for (let j = 0; j < response.articles.length; j++) {
+                let article = response.articles[j]
+                let node = document.querySelector("#articleTemplate").cloneNode(true)
+                let image = node.querySelector(".article-image")
+                image.src = article.urlToImage
+                let heading = node.querySelector(".article-heading")
+                if (article.title.length <= 1) continue;
+                heading.innerHTML = article.title
+                let description = node.querySelector(".article-description")
+                description.innerHTML = article.description
+                let link = node.querySelector(".article-link")
+                link.href = article.url;
+                // make your changes...
+                articlesContainer.appendChild(node)
+              }
+            })
+        }
+      })
+
+
+  </script>
 </body>
 
 </html>
