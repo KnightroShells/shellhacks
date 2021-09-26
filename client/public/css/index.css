@@ -2,6 +2,7 @@ body, html {
   margin: 0;
 }
 
+
 .bg-image {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
@@ -20,8 +21,16 @@ body, html {
   /* background-image : linear-gradient(to bottom, 
                     rgba(255,255,255, 0), 
                     rgba(255,255,255, 1) 90%); */
-  height: 100px;
+  height: 80px;
   color: white;
+}
+
+.top-space {
+  margin-top: 50px;
+}
+
+.rounded-xl {
+  border-radius: 1rem;
 }
 
 .site-logo{
@@ -37,4 +46,46 @@ filter: invert(74%) sepia(17%) saturate(760%) hue-rotate(185deg) brightness(280%
   position: relative;
   margin-left: 1.1rem;
   color: #9BB2E5;
+}
+
+h1 {
+  text-align: center;
+  margin: auto;
+  align-items:center;
+  justify-content:center;
+}
+
+.container-1 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.container-2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#start-btn{
+  flex: 1;
+  font-size: 2rem;
+  border-radius: 75px;
+  position: relative;
+  margin-left: 100px;
+}
+
+#description {
+  display: flex;
+  width: 45%;
+  font-size: 1.3rem;
+  text-align: center;
+  height: 200px;
+  margin: auto;
+  align-items:center;
+  justify-content:center;
+}
+
+.homepage-svg {
+  width: 46%;
 }

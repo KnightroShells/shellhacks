@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="public/css/bootstrap.min.css">
   <link rel="stylesheet" href="public/css/fontawesome.min.css">
   <link rel="stylesheet" href="public/css/index.css">
+  <!-- Google's Roboto Font
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
   <title>MyTechNews</title>
 </head>
 
@@ -31,23 +35,26 @@
     </div>
   </nav>
 
-  <div class="btns">
-
-    <div class="card">
-      <div class="card-header text-center text-md-center">
-        <p>MyTechNews is an app that will allow you to efficiently find articles on tech topics that you are interested
-          in. This helps developers stay up to date on current trends. Our app is easy to use; simply select your
-          preferences and you will provided results using a web scraping method.</p>
-        <a id="start-btn" class="btn btn-outline-primary p-2 m-4 justify-content-center" href="auth.html">Get
-          Started
-          Here
-        </a>
-      </div>
+  <div class="container mx-auto p-3 bg-white rounded-xl top-space">
+    <h1>Welcome to your new favorite news source</h1>
+    <div class="container-1">
+      <p id="description">This Web Application allows you to efficiently find tech-related news articles,
+        helping you stay up-to-date with current trends.
+        Create an account, Select your Interests, and Enjoy your reading!
+      </p>
+      <img class="homepage-svg" src="./public/images/homepage-design.svg" alt="Front page vector art">
     </div>
 
+    <div class="container-2">
+      <a id="start-btn" class="btn btn-primary p-2 m-4 justify-content-center" href="auth.html">Get Started Here</a>
+    </div>
 
-    <script src="public/js/bootstrap.bundle.min.js"></script>
-    <script src="public/js/axios.min.js"></script>
+  </div>
+
+
+
+  <script src="public/js/bootstrap.bundle.min.js"></script>
+  <script src="public/js/axios.min.js"></script>
 </body>
 
 </html>

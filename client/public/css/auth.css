@@ -33,6 +33,7 @@ body {
 	align-items: center;
 	padding-top: 25vh;
 	transform: scale(1.4);
+	z-index: -10;
 }
 
 .section-title {
@@ -268,7 +269,6 @@ body {
 	line-height: 40px;
 	color: #3b4465;
   	background: #eef9fe;
-  	border: 1px solid #;
   	border-radius: 0px;
 }
 
@@ -303,16 +303,24 @@ body {
 }
 /* End Sign Up/In form */
 
-  .site-logo{
+.navbar {
+    background-color:  #000000AA;
+    height: 80px;
+    color: white;
+	z-index: 10;
+}
+
+.site-logo{
   position: relative;
   width: 3rem;
   height: 3rem;
-  margin: 0.5rem;
-  filter: invert(100%);
-  }
+  filter:  invert(87%) sepia(18%) saturate(1005%) hue-rotate(111deg) brightness(700%) contrast(81%);
+}
 
-  .site-logo-container {
-	width: 3rem;
-  	height: 3rem;
-
-  }
+.navbar-brand {
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    margin-left: 1.1rem;
+    color: #77E7D6;
+}

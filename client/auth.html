@@ -13,61 +13,71 @@
 
 <body>
     <div class="bg-image"></div>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img class="site-logo" src="./public/images/newspaper_icon.png" alt="Site logo">
+            <a class="navbar-brand" href="index.html">My Tech News</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div id="root">
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
 
-        <!-- Nav bar -->
-        <a class="site-logo-container" href="../client/index.html">
-            <img class="site-logo" src="./public/images/newspaper_icon.png" alt="Site logo" href="../client/index.html">
-
-        </a>
-
-        <section class="forms-section">
-            <h1 class="section-title"></h1>
-            <div class="forms">
-                <div class="form-wrapper is-active">
-                    <button type="button" class="switcher switcher-login">
-                        Login
-                        <span class="underline"></span>
-                    </button>
-                    <form class="form form-login" id="login">
-                        <fieldset>
-                            <legend>Please, enter your email and password for login.</legend>
-                            <div class="input-block">
-                                <label for="login-email">E-mail</label>
-                                <input id="login-email" name="email" class="form-control rounded" type="email" required>
-                            </div>
-                            <div class="input-block">
-                                <label for="login-password">Password</label>
-                                <input id="login-password" name="password" class="form-control rounded" type="password" required>
-                            </div>
-                        </fieldset>
-                        <button type="submit" class="btn btn-outline-primary">Login</button>
-                    </form>
-                </div>
-                <div class="form-wrapper">
-                    <button type="button" class="switcher switcher-signup">
-                        Register
-                        <span class="underline"></span>
-                    </button>
-                    <form class="form form-signup" id="register">
-                        <fieldset>
-                            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-                            <div class="input-block">
-                                <label for="signup-email">E-mail</label>
-                                <input id="signup-email" name="email" class="form-control rounded" type="email" required>
-                            </div>
-                            <div class="input-block">
-                                <label for="signup-password">Password</label>
-                                <input id="signup-password" name="password" class="form-control rounded" type="password" required>
-                            </div>
-                        </fieldset>
-                        <button type="submit" class="btn btn-outline-primary">Create</button>
-                    </form>
-                </div>
+                </ul>
             </div>
-        </section>
-    </div>
+        </div>
+    </nav>
+
+    <section class="forms-section">
+        <h1 class="section-title"></h1>
+        <div class="forms">
+            <div class="form-wrapper is-active">
+                <button type="button" class="switcher switcher-login">
+                    Login
+                    <span class="underline"></span>
+                </button>
+                <form class="form form-login" id="login">
+                    <fieldset>
+                        <legend>Please, enter your email and password for login.</legend>
+                        <div class="input-block">
+                            <label for="login-email">E-mail</label>
+                            <input id="login-email" name="email" class="form-control rounded" type="email" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="login-password">Password</label>
+                            <input id="login-password" name="password" class="form-control rounded" type="password"
+                                required>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-outline-primary">Login</button>
+                </form>
+            </div>
+            <div class="form-wrapper">
+                <button type="button" class="switcher switcher-signup">
+                    Register
+                    <span class="underline"></span>
+                </button>
+                <form class="form form-signup" id="register">
+                    <fieldset>
+                        <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                        <div class="input-block">
+                            <label for="signup-email">E-mail</label>
+                            <input id="signup-email" name="email" class="form-control rounded" type="email" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="signup-password">Password</label>
+                            <input id="signup-password" name="password" class="form-control rounded" type="password"
+                                required>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-outline-primary">Create</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
 
     <script src="public/js/bootstrap.bundle.min.js"></script>
@@ -76,36 +86,36 @@
 
     <script>
         let register = document.getElementById('register')
-        register.addEventListener('submit', function(event){
+        register.addEventListener('submit', function (event) {
             event.preventDefault()
             let data = { email: register.elements['email'].value, password: register.elements['password'].value }
             axios({
                 method: 'post',
                 url: 'api/user/register',
                 data: data
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log(response)
             })
         })
     </script>
 
-<script>
-    let login = document.getElementById('login')
-    login.addEventListener('submit', function(event){
-        event.preventDefault();
-        let data = { email: login.elements['email'].value, password: login.elements['password'].value }
-        axios({
-            method: 'post',
-            url: 'api/user/login',
-            data: data
+    <script>
+        let login = document.getElementById('login')
+        login.addEventListener('submit', function (event) {
+            event.preventDefault();
+            let data = { email: login.elements['email'].value, password: login.elements['password'].value }
+            axios({
+                method: 'post',
+                url: 'api/user/login',
+                data: data
+            })
+                .then(function (response) {
+                    localStorage.setItem("auth", response.accessToken)
+                    location.href = "select.html"
+                })
         })
-        .then(function(response) {
-            localStorage.setItem("auth", response.accessToken)
-            location.href = "select.html"
-        })
-    })
 
-</script>
+    </script>
 
 </body>
 
