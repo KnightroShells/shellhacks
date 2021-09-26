@@ -7,15 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/fontawesome.min.css">
-    <link rel="stylesheet" href="public/css/login.css">
-    <title>MyTechNews | Login/Register</title>
+    <link rel="stylesheet" href="public/css/auth.css">
+    <title>MyTechNews | Authentication</title>
 </head>
 
 <body>
     <div id="root">
         <div class="bg-image"></div>
-        <a class="btn m-2 btn-outline-dark" href="index.html">Home</a>
-
         <section class="forms-section">
             <h1 class="section-title"></h1>
             <div class="forms">
@@ -29,11 +27,11 @@
                             <legend>Please, enter your email and password for login.</legend>
                             <div class="input-block">
                                 <label for="login-email">E-mail</label>
-                                <input id="login-email" type="email" required>
+                                <input id="login-email" class="form-control rounded" type="email" required>
                             </div>
                             <div class="input-block">
                                 <label for="login-password">Password</label>
-                                <input id="login-password" type="password" required>
+                                <input id="login-password" class="form-control rounded" type="password" required>
                             </div>
                         </fieldset>
                         <button type="submit" class="btn btn-outline-primary">Login</button>
@@ -41,7 +39,7 @@
                 </div>
                 <div class="form-wrapper">
                     <button type="button" class="switcher switcher-signup">
-                        Sign Up
+                        Register
                         <span class="underline"></span>
                     </button>
                     <form class="form form-signup">
@@ -49,25 +47,21 @@
                             <legend>Please, enter your email, password and password confirmation for sign up.</legend>
                             <div class="input-block">
                                 <label for="signup-email">E-mail</label>
-                                <input id="signup-email" type="email" required>
+                                <input id="signup-email" class="form-control rounded" type="email" required>
                             </div>
                             <div class="input-block">
                                 <label for="signup-password">Password</label>
-                                <input id="signup-password" type="password" required>
-                            </div>
-                            <div class="input-block">
-                                <label for="signup-password-confirm">Confirm password</label>
-                                <input id="signup-password-confirm" type="password" required>
+                                <input id="signup-password" class="form-control rounded" type="password" required>
                             </div>
                         </fieldset>
-                        <button type="submit" class="btn btn-outline-primary">Continue</button>
+                        <button type="submit" class="btn btn-outline-primary">Create</button>
                     </form>
                 </div>
             </div>
         </section>
     </div>
 
-    
+
     <script src="public/js/bootstrap.bundle.min.js"></script>
     <script src="public/js/login.js"></script>
 </body>

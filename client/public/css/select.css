@@ -1,0 +1,134 @@
+.bg-image{
+    background-color: #74EBD5;
+    background-image: linear-gradient(-90deg, #74EBD5 0%, #9FACE6 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    z-index: -99;
+    position: fixed;
+}
+
+.navbar {
+    background-color:  #000000AA;
+    height: 110px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.navbar-brand {
+    font-size: 40px;
+    font-weight: bold;
+    position: relative;
+    color: white;
+    margin-left: 5.3rem;
+    background: radial-gradient(circle, #F48FB1 0%,  #CE93D8 20%, #B2EBF2 40%, #A5D6A7 60%, #B39DDB 100%);
+    font-size: 4rem;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 400%;
+    animation: gradient 10s linear infinite alternate;
+    font-family: Open Sans, sans-serif;
+    font-weight: 100;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.option {
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: .5rem;
+  width: 200px;
+}
+
+.sub-heading {
+  color: #3f3f3f;
+  margin-bottom: 5%;
+}
+
+.top-space {
+  margin-top: 50px;
+}
+
+.rounded-xl {
+  border-radius: 1rem;
+}
+
+.form-check-inline {
+  font-size: 30px;
+  margin: 20px;
+  padding: 20px;
+}
+
+body {
+    margin: 0;
+	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    background-color: #9bade2;
+}
+
+.custom-control {
+    padding: 10px;
+    margin: 20px;
+}
+
+
+
+.attributes {
+    height: 75px;
+    width: 250px;
+    border-radius: 75px;
+    font-size: 25px;
+    border: 2px solid red;
+}
+
+.btn {
+  margin-top: 50px;
+    height: 75px;
+    width: 250px;
+    border-radius: 75px;
+    font-size: 25px;
+}
+
+.btn.btn-success {
+    color: #ffffff;
+    background-color: #8a458f;
+    border-color: #8a458f;
+  }
+  .btn.btn-success:hover {
+    color: #ffffff;
+    background-color: #703874;
+    border-color: #69346d;
+  }
+  .btn.btn-success:focus, .btn.btn-success.focus {
+    box-shadow: 0 0 0 0.2rem rgba(112, 56, 116, 0.5);
+  }
+  .btn.btn-success.disabled, .btn.btn-success:disabled {
+    color: #ffffff;
+    background-color: #8a458f;
+    border-color: #8a458f;
+  }
+  .btn.btn-success:not(:disabled):not(.disabled):active,
+  .btn.btn-success:not(:disabled):not(.disabled).active {
+    color: #ffffff;
+    background-color: #69346d;
+    border-color: #613064;
+  }
+  .show > .btn.btn-success.dropdown-toggle {
+    color: #ffffff;
+    background-color: #69346d;
+    border-color: #613064;
+  }
+  .show > .btn.btn-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(112, 56, 116, 0.5);
+  }
+  .btn.btn-success:not(:disabled):not(.disabled):active:focus,
+  .btn.btn-success:not(:disabled):not(.disabled).active:focus {
+    box-shadow: 0 0 0 0.2rem rgba(112, 56, 116, 0.5);
+  }
