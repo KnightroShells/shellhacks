@@ -14,8 +14,7 @@
 <body>
     <div class="templates" style="display:none;">
         <div id="inputTemplate" class="form-check-inline">
-            <input type="hidden" class="interests-input-hidden" value="">
-            <input class="form-check-input interests-input" type="checkbox" value="yes" id="flexCheckDefault">
+            <input class="form-check-input interests-input" type="checkbox" value="" id="flexCheckDefault">
             <label class="form-check-label p-2 interests-label"></label>
         </div>
     </div>
@@ -41,7 +40,7 @@
     </nav>
 
     <div class="container mx-auto p-5 bg-white text-black rounded-xl top-space">
-        <form>
+        <form id="interests-form">
             <fieldset class="form-group">
 
                 <h1>Let us search for you!</h1>
@@ -73,8 +72,6 @@
             // for each category
             for (let i = 0; i < categories.length; i++) {
                 let node = document.querySelector("#inputTemplate").cloneNode(true)
-                let hidden = node.querySelector(".interests-input-hidden")
-                hidden.name = categories[i];
                 let input = node.querySelector(".interests-input")
                 input.name = categories[i];
                 let label = node.querySelector(".interests-label")
@@ -83,6 +80,26 @@
                 // make your changes...
                 inputContainer.appendChild(node)
             }
+        })
+
+        let form = document.querySelector("#interests-form")
+        form.addEventListener('submit', function(event){
+            event.preventDefault()
+            let formData = new FormData(form)
+            let inputs = Array.from(formData.entries()).map(v => v[0])
+            let data = { interests: inputs.join(",") }
+            let token = localStorage.getItem("auth")
+            axios({
+                method: 'put',
+                url: 'api/user/update-interests',
+                data: data,
+                headers: {
+                    Authorization: `Bearer ${token}` 
+                }
+            })
+            .then(function(response) {
+                location.reload()
+            })
         })
         
 

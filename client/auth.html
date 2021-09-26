@@ -90,7 +90,8 @@
             method: 'post',
             url: 'api/user/login',
             data: data
-        }).then(function(response) {
+        })
+        .then(function(response) {
             localStorage.setItem("auth", response.accessToken)
             location.href = "select.html"
         })
