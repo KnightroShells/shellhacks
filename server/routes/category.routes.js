@@ -7,34 +7,31 @@ const Category = require("../models/category.model");
 
 // Get Articles
 router.get("/", async (req, res) => {
-    const articles = await fetchArticles();
-    res.send(await articles);
+    const categories = await fetchCategories();
+    res.send(await categories);
 });
 
 // Add Article
 router.post("/", async (req, res) => {
-    let article = await Article.create({
-      title: req.body.title, 
-      description: req.body.description, 
-      categories: req.body.categories, 
-      link: req.body.link
+    let category = await Category.create({
+      name: req.body.name
      });
     res.status(201).send();
 });
 
 // Delete Article
 router.delete("/:id", async (req, res) => {
-  let article = await Article.destroy({
+  let category = await Category.destroy({
     where: { 
-      articleId: req.params.id
+      categoryId: req.params.id
     }
   });
   res.status(201).send();
 });
 
-async function fetchArticles() {
-    let articles = Article.findAll();
-    return articles;
+async function fetchCategories() {
+    let categories = Category.findAll();
+    return categories;
 }
 
 module.exports = router;

@@ -10,8 +10,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/user", require("./routes/user.routes.js"));
 app.use("/api/article", require("./routes/article.routes.js"));
+app.use("/api/category", require("./routes/category.routes.js"));
+app.use("/api/user", require("./routes/user.routes.js"));
 
 const port = process.env.PORT || 5000;
 
