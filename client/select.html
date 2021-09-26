@@ -66,7 +66,16 @@
 
     <script>
         let inputContainer = document.querySelector("#input-container")
+        let token = localStorage.getItem("auth")
+        let interests = []
         // fetch categories
+        axios.get("api/user/interests", {
+            headers: {
+                    Authorization: `Bearer ${token}` 
+                }
+        }).then(function(response){
+            interests = response.interests.split(",")
+        })
         axios.get("api/category").then(function(response){
             let categories = response.map(c => c.name)
             // for each category
@@ -74,6 +83,8 @@
                 let node = document.querySelector("#inputTemplate").cloneNode(true)
                 let input = node.querySelector(".interests-input")
                 input.name = categories[i];
+                if(interests.includes(categories[i]))
+                    input.checked = true;
                 let label = node.querySelector(".interests-label")
                 label.htmlFor = categories[i]
                 label.innerHTML = categories[i]
