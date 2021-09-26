@@ -12,34 +12,23 @@
 
 .navbar {
     background-color:  #000000AA;
-    height: 110px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    height: 100px;
+    color: white;
+}
+
+.site-logo{
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  filter: invert(74%) sepia(17%) saturate(760%) hue-rotate(185deg) brightness(280%) contrast(91%);
 }
 
 .navbar-brand {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
     position: relative;
-    color: white;
-    margin-left: 5.3rem;
-    background: radial-gradient(circle, #F48FB1 0%,  #CE93D8 20%, #B2EBF2 40%, #A5D6A7 60%, #B39DDB 100%);
-    font-size: 4rem;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-size: 400%;
-    animation: gradient 10s linear infinite alternate;
-    font-family: Open Sans, sans-serif;
-    font-weight: 100;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 100%;
-  }
+    margin-left: 1.1rem;
+    color: #9BB2E5;
 }
 
 .option {

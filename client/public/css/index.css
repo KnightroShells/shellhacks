@@ -14,13 +14,27 @@ body, html {
     position: fixed;
 }
 
-h1 {
-  text-align: center;
-  background-color: rgba(red, green, blue, 0.5);
+.navbar {
+  background-color:  #000000AA;
+  /* Might wanna experiment with this later */
+  /* background-image : linear-gradient(to bottom, 
+                    rgba(255,255,255, 0), 
+                    rgba(255,255,255, 1) 90%); */
+  height: 100px;
+  color: white;
 }
 
-#start-btn {
-background-color: rgba(0,0,0,0.5); 
-font-size: xx-large;
-color: white;
+.site-logo{
+position: relative;
+width: 3rem;
+height: 3rem;
+filter: invert(74%) sepia(17%) saturate(760%) hue-rotate(185deg) brightness(280%) contrast(91%);
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-left: 1.1rem;
+  color: #9BB2E5;
 }

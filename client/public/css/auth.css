@@ -302,3 +302,17 @@ body {
 	transform: translateX(30%);
 }
 /* End Sign Up/In form */
+
+  .site-logo{
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem;
+  filter: invert(100%);
+  }
+
+  .site-logo-container {
+	width: 3rem;
+  	height: 3rem;
+
+  }
