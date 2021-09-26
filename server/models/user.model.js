@@ -10,6 +10,7 @@ User.init({
   userId: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
   email: { type: DataTypes.STRING, allowNull: false },
   password: { type: DataTypes.STRING(64), allowNull: false },
+  priveledge: { type: DataTypes.INTEGER, defaultValue: 0, allowNull: false },
   interests: { type: DataTypes.TEXT, allowNull: false },
   
   dateCreated: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, allowNull: false },

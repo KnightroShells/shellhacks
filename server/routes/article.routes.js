@@ -7,8 +7,18 @@ const Category = require("../models/category.model");
 
 // Get Articles
 router.get("/", async (req, res) => {
-    const articles = await fetchArticles();
-    res.send(await articles);
+    const articles = await Article.findAll();
+    res.send(articles);
+});
+
+// Get Articles
+router.get("/:category", async (req, res) => {
+  const articles = await Article.findAll({
+    where:{
+      category: req.params.category
+    }
+  });
+  res.send(articles);
 });
 
 // Add Article
@@ -31,10 +41,5 @@ router.delete("/:id", async (req, res) => {
   });
   res.status(201).send();
 });
-
-async function fetchArticles() {
-    let articles = Article.findAll();
-    return articles;
-}
 
 module.exports = router;
