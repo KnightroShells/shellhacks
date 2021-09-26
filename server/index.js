@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+var path = require('path');
 require("dotenv").config();
 
 const sequelize = require("./middleware/conn.js");
@@ -15,6 +16,10 @@ app.use("/api/category", require("./routes/category.routes.js"));
 app.use("/api/user", require("./routes/user.routes.js"));
 
 const port = process.env.PORT || 5000;
+
+app.use('/', express.static(path.resolve('client')))
+
+
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
