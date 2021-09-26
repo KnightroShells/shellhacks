@@ -65,6 +65,15 @@ router.post("/login", async (req, res) => {
     res.status(200).json({accessToken: accessToken});
 });
 
+router.get("/interests", authenticateToken, async (req, res) => {
+  const user = await User.findOne({
+    where: { email: req.email }
+  });
+  return res.status(200).json({ interests: user.interests });
+
+  return 
+})
+
 router.put("/update-interests", authenticateToken, async (req, res) => {
   const {interests} = req.body;
   const interestsArray = interests.split(",");
